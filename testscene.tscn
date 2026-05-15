@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fp78p478fywq"]
+
+[ext_resource type="AudioStream" uid="uid://covaje3u1sc4f" path="res://sound/bardware-test-tune.wav" id="1_44gc5"]
+[ext_resource type="Script" uid="uid://bafu1057btxe4" path="res://addons/bardware/nodes/bardiostreamplayer3d.gd" id="1_jotil"]
+
+[node name="Node2D" type="Node2D" unique_id=1875431843]
+
+[node name="BardioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=745350318]
+stream = ExtResource("1_44gc5")
+autoplay = true
+max_distance = 4.6
+script = ExtResource("1_jotil")
+metadata/_custom_type_script = "uid://bafu1057btxe4"
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=2086863475]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=370905436]
