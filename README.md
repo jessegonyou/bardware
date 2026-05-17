@@ -27,11 +27,20 @@ Whenever the game is run for the first time, it will copy all of its' audio file
 This is usually one of the following:
 
 - `C:\\Users\\<your username>\\AppData\\Roaming\\Godot\\app_userdata\\<game name>\\patchbard` on Windows,
-- `/home/<your username>/.local/share/godot/app_userdata/<game name>/patchbard` on Linux, and
+- `/home/<your username>/.local/share/godot/app_userdata/<game name>/patchbard` on Linux, or
 - `/Users/<your username>/Library/Application Support/Godot/app_userdata/<game name>/patchbard` on MacOS.
 
 All you need to do is replace the files in that directory with your own audio, and the game will automatically play them
 the next time you launch the game.
+
+### ... do I reset the patchbard directory?
+There are two ways you can easily do this. You can either delete the `user://patchbard` directory and relaunch your game, or run the
+following GDScript in your project:
+
+```GDScript
+BardwareSoundSync.clear_patchbard()
+BardwareSoundSync.sync()
+```
 
 ### ... do I contribute?
 While contributions are welcome, it is highly unlikely that I will respond to them in any timely manner. That said, if

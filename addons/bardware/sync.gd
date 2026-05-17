@@ -6,7 +6,7 @@ var res_snd: DirAccess
 var usr_snd: DirAccess
 
 # TODO: Add dot.seperated.properties in filename
-func _ready() -> void:
+func sync() -> void:
 	res_snd = DirAccess.open("res://sound")
 	if DirAccess.open("res://sound") == null:
 		push_error("res://sound does not exist!")
@@ -38,6 +38,21 @@ func _ready() -> void:
 		
 		if FileAccess.open(usr_file, FileAccess.READ) == null:
 			DirAccess.copy_absolute(res_file, usr_file)
+
+func clear_patchbard():
+	if DirAccess.open("user://"+SOUND_DIR) == null:
+		DirAccess.open("user://").make_dir(SOUND_DIR)
+	
+	var usr_files = walkdir("user://"+SOUND_DIR)
+	var usr_dirs = walkjustdir("user://"+SOUND_DIR)
+	
+	for f in usr_files:
+		DirAccess.remove_absolute(f)
+	for d in usr_dirs:
+		DirAccess.remove_absolute(d)
+
+func _ready() -> void:
+	sync()
 
 func walkjustdir(path):
 	var dir = DirAccess.open(path)
