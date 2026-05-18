@@ -3,6 +3,10 @@
 ## What?
 Bardware is an extremely lightweight audio patching kit for the Godot game engine by Jesse Gonyou
 
+> **Important Note**: Bardware is not meant to be used in a finished product, since it is a tool to make the composing
+process easier. Including Bardware in a finished product only creates extra unnecessary files on the user's computer and
+can sometimes add audio artifacts.
+
 ## Why?
 Working with a composer can be hard. Nobody wants to wait for the developer to implement a piece of audio into a build
 and ship it back before an in-game track can be tested, which is why many developers use professional-grade middleware
