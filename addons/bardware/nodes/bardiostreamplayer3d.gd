@@ -8,6 +8,11 @@ extends AudioStreamPlayer3D
 ## This does not take effect at runtime
 @export var do_not_patch: bool = false
 
+## Check to loop the audio. Doing this in the
+## AudioStream resource breaks Bardware, since
+## it requires unlinking the resource.
+@export var loop: bool = false
+
 ## Load the patched version of some file into the
 ## audio stream
 func bard_load(file: String):
@@ -37,3 +42,6 @@ func _enter_tree() -> void:
 	
 	if autoplay:
 		play()
+	
+	if loop:
+		finished.connect(play)
